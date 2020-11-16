@@ -1,3 +1,6 @@
+from M5StickMenu import *
+
+
 def main():
     
     menu = M5StickMenu(landscape=True)
