@@ -4,7 +4,7 @@ from m5stickmenu import *
 def main():
     
     # Initialiser menuen
-    mymenu = M5StickMenu()
+    test_menu = M5StickMenu()
     
     # Definer punkter til menuen
     punkt1 = FunctionItem("1. Haender", tryk, [1])
@@ -12,20 +12,20 @@ def main():
     punkt3 = FunctionItem("3. Fingre", tryk, [3])
     
     # Foej punkterne til menuen
-    mymenu.add_item(punkt1)
-    mymenu.add_item(punkt2)
-    mymenu.add_item(punkt3)
+    test_menu.add_item(punkt1)
+    test_menu.add_item(punkt2)
+    test_menu.add_item(punkt3)
     
-    mymenu.start()
+    test_menu.start()
     
     
     while True:
 
         if btnA.wasPressed():
-            mymenu = mymenu.down()
+            test_menu = test_menu.down()
 
         if btnB.wasPressed():
-            mymenu = mymenu.enter()
+            test_menu = test_menu.enter()
             
         time.sleep(0.01)
 
