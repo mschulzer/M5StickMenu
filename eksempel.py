@@ -32,10 +32,7 @@ def main():
    
    
 
-***
- Brugerdefinerede funktioner
-***
-
+# Brugerdefinerede funktioner
 def tryk(index):
     print('Du trykkede %d' % index)
 
