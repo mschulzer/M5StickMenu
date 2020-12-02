@@ -1,4 +1,3 @@
-
 from m5stack import lcd
 
 class GenericM5Stick(object):
@@ -66,8 +65,8 @@ class M5StickMenu(GenericM5Stick):
             if i != 0 and i % self.lines == 0:
                 self.lim.append(i)
 
-        #if self.lim[-1] != len(self.items):
-        #    self.lim.append(len(self.items))
+        if len(self.items) >=3 and self.lim[-1] != len(self.items):
+            self.lim.append(len(self.items))
 
         if len(self.items) == 0:
             lcd.print(' ... tilbage >', 55, 55)
