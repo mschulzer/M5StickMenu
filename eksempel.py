@@ -1,5 +1,7 @@
 from menu import *
 from m5stack import lcd
+from m5stack import btnA, btnB
+import time
 
 
 def main():
