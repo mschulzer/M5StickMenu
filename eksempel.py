@@ -1,4 +1,5 @@
-from m5stickmenu import *
+from menu import *
+from m5stack import lcd
 
 
 def main():
