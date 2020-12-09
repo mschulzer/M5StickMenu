@@ -15,20 +15,20 @@ def main():
     menu = M5StickMenu()
     submenu = M5StickSub(menu)
     
-    punkt1 = FunctionItem("1. Haender", tryk, [1])
-    punkt2 = FunctionItem("2. Ben", tryk, [2])
-    submenu_item = SubmenuItem("3. Arme", submenu, menu)
+    punkt1 = MenuElement("1. Haender", tryk, [1])
+    punkt2 = MenuElement("2. Ben", tryk, [2])
+    submenu_item = SubmenuElement("3. Arme", submenu, menu)
     
-    submenu.add_item(FunctionItem("3.1. Fingergang", tryk, [31]))
-    submenu.add_item(FunctionItem("3.2. Armloeft", tryk, [32]))
-    submenu.add_item(FunctionItem("Tilbage", subExit, [submenu]))
+    submenu.add_element(MenuElement("3.1. Fingergang", tryk, [31]))
+    submenu.add_element(MenuElement("3.2. Armloeft", tryk, [32]))
+    submenu.add_element(MenuElement("Tilbage", subExit, [submenu]))
     
-    punkt4 = FunctionItem("4. Fingre", tryk, [4])
+    punkt4 = MenuElement("4. Fingre", tryk, [4])
     
-    menu.add_item(punkt1)
-    menu.add_item(punkt2)
-    menu.add_item(submenu_item)
-    menu.add_item(punkt4)
+    menu.add_element(punkt1)
+    menu.add_element(punkt2)
+    menu.add_element(submenu_item)
+    menu.add_element(punkt4)
     
     menu.start()
     
