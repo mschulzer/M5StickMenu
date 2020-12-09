@@ -136,9 +136,9 @@ class MenuElement(MenuItem):
         self.returned_value = self.function(*self.args)
         return self.returned_value
 
-class SubmenuItem(MenuItem):
+class SubmenuElement(MenuItem):
     def __init__(self, title, submenu, menu=None):
-        super(SubmenuItem, self).__init__(title=title, menu=menu)
+        super(SubmenuElement, self).__init__(title=title, menu=menu)
 
         self.submenu = submenu
         if menu:
