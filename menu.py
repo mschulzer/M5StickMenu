@@ -117,10 +117,10 @@ class MenuItem(object):
             print('Menu title too long')
         self.title = title
 
-class FunctionItem(MenuItem):
+class MenuElement(MenuItem):
 
     def __init__(self, title, function, args=None, menu=None):
-        super(FunctionItem, self).__init__(title=title, menu=menu)
+        super(MenuElement, self).__init__(title=title, menu=menu)
 
         self.function = function
         self.returned_value = None
