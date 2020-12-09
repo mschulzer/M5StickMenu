@@ -14,9 +14,9 @@ class GenericM5Stick(object):
         self.produce()
         return self
 
-    def add_item(self, item):
-        item.menu = self
-        self.items.append(item)
+    def add_element(self, element):
+        element.menu = self
+        self.items.append(element)
         return self
 
     def down(self):

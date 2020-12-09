@@ -10,14 +10,14 @@ def main():
     test_menu = M5StickMenu()
     
     # Definer punkter til menuen
-    punkt1 = FunctionItem("1. Haender", tryk, [1])
-    punkt2 = FunctionItem("2. Ben", tryk, [2])
-    punkt3 = FunctionItem("3. Fingre", tryk, [3])
+    punkt1 = MenuElement("1. Haender", tryk, [1])
+    punkt2 = MenuElement("2. Ben", tryk, [2])
+    punkt3 = MenuElement("3. Fingre", tryk, [3])
     
     # Foej punkterne til menuen
-    test_menu.add_item(punkt1)
-    test_menu.add_item(punkt2)
-    test_menu.add_item(punkt3)
+    test_menu.add_element(punkt1)
+    test_menu.add_element(punkt2)
+    test_menu.add_element(punkt3)
     
     test_menu.start()
     
