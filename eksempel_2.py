@@ -3,9 +3,6 @@ from m5stack import lcd
 from m5stack import btnA, btnB
 import time
 
-    #M5 tager dig et skridt ned ??
-    #under 3 menupunkter ??
-    #kald dem noget andet ...
 
 def main():
     # setup LCD
