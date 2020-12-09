@@ -3,7 +3,7 @@ from m5stack import lcd
 class GenericM5Stick(object):
 
     def __init__(self, parent=None):
-        self.items = list()
+        self.elements = list()
         self.parent = parent
         self.current_option = 0
         self.selected_option = -1
@@ -16,11 +16,11 @@ class GenericM5Stick(object):
 
     def add_element(self, element):
         element.menu = self
-        self.items.append(element)
+        self.elements.append(element)
         return self
 
     def down(self):
-        if self.current_option == len(self.items) - 1:
+        if self.current_option == len(self.elements) - 1:
             self.current_option = 0
         else:
             self.current_option += 1
@@ -30,7 +30,7 @@ class GenericM5Stick(object):
 
     def enter(self):
 
-        action_result = self.items[self.current_option].action()
+        action_result = self.elements[self.current_option].action()
         if isinstance(action_result, GenericM5Stick):
             return action_result
 
@@ -61,23 +61,23 @@ class M5StickMenu(GenericM5Stick):
         self.lines = 3
         self.lim = []
 
-        for i in range(len(self.items)+1):
+        for i in range(len(self.elements)+1):
             if i != 0 and i % self.lines == 0:
                 self.lim.append(i)
 
-        if len(self.items) >=3 and self.lim[-1] != len(self.items):
-            self.lim.append(len(self.items))
+        if len(self.elements) >=3 and self.lim[-1] != len(self.elements):
+            self.lim.append(len(self.elements))
 
-        if len(self.items) == 0:
+        if len(self.elements) == 0:
             lcd.print(' ... tilbage >', 55, 55)
             return self
-        elif len(self.items) <=self.lines:
-            for i in range(len(self.items)):
+        elif len(self.elements) <=self.lines:
+            for i in range(len(self.elements)):
                 if self.current_option == i:
                     lcd.print('>', 5, 10+(self.num_rows*20))
-                    lcd.print(self.items[i].title, 20, 10+(self.num_rows*20))
+                    lcd.print(self.elements[i].title, 20, 10+(self.num_rows*20))
                 else:
-                    lcd.print(self.items[i].title, 20, 10+(self.num_rows*20))
+                    lcd.print(self.elements[i].title, 20, 10+(self.num_rows*20))
                 self.num_rows += 1
 
         else:
@@ -86,9 +86,9 @@ class M5StickMenu(GenericM5Stick):
                 for k in range(self.lines):
                     if self.current_option == k:
                         lcd.print('>', 5, 10+(self.num_rows*20))
-                        lcd.print(self.items[k].title, 20, 10+(self.num_rows*20))
+                        lcd.print(self.elements[k].title, 20, 10+(self.num_rows*20))
                     else:
-                        lcd.print(self.items[k].title, 20, 10+(self.num_rows*20))
+                        lcd.print(self.elements[k].title, 20, 10+(self.num_rows*20))
                     self.num_rows += 1
 
             for n in range(len(self.lim)-1):
@@ -96,9 +96,9 @@ class M5StickMenu(GenericM5Stick):
                     for i in range(self.lim[n], self.lim[n+1]):
                         if self.current_option == i:
                             lcd.print('>', 5, 10+(self.num_rows*20))
-                            lcd.print(self.items[i].title, 20, 10+(self.num_rows*20))
+                            lcd.print(self.elements[i].title, 20, 10+(self.num_rows*20))
                         else:
-                            lcd.print(self.items[i].title, 20, 10+(self.num_rows*20))
+                            lcd.print(self.elements[i].title, 20, 10+(self.num_rows*20))
 
                         self.num_rows += 1
 
